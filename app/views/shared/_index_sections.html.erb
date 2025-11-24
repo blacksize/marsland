@@ -1,20 +1,36 @@
 <% @sections = [{
   name: "讨论",
-  nodes: [{ name: "闲聊", id: 12 }, { name: "新闻", id: 3 }]
+  nodes: [{ name: "闲聊灌水", id: 1 }, { name: "VPN/机场", id: 2 }, { name: "VPS", id: 3 }, { name: "科技", id: 7 }, { name: "AI", id: 8 }, { name: "加密货币", id: 9 }, { name: "问答", id: 10 }]
 }, {
-  name: "生活",
-  nodes: [{ name: "情感", id: 1 }, { name: "问答", id: 2 }]
-}] %>
+  name: "交易",
+  nodes: [{ name: "求购", id: 11 }, { name: "转让", id: 12 }, { name: "拼车", id: 13 }, { name: "曝光", id: 14 }]
+}, {
+  name: "技术",
+  nodes: [{ name: "翻墙", id: 15 }, { name: "开源", id: 16 }, { name: "开发者", id: 17 }]
+},
+{
+  name: "站务",
+  nodes: [{ name: "公告", id: 18 },{ name: "反馈", id: 23 }]
+},
+{
+  name: "分享",
+  nodes: [{ name: "资源", id: 19 }]
+},
+{
+  name: "日常",
+  nodes: [{ name: "生活情感", id: 20 },{ name: "体育游戏", id: 21 },{ name: "时政新闻", id: 22 }]
+}
+] %>
 <div class="index-sections card">
   <div class="card-body">
     <div class="row node-list">
-      <% @sections.each do |section| %>  <!-- 遍历 @sections 数组 -->
+      <% @sections.each do |section| %>
         <div class="node media">
           <label class="mr-2 media-left"><%= section[:name] %></label>  <!-- 渲染 section 名称 -->
           <span class="nodes media-body">
-            <% section[:nodes].each do |node| %>  <!-- 遍历每个 section 下的 nodes -->
+            <% section[:nodes].each do |node| %>
               <span class="name">
-                <%= link_to(node[:name], node_topics_path(node), title: node[:name], data: { id: node[:id] }) %>  <!-- 渲染节点的名称并链接到相应的页面 -->
+                <%= link_to(node[:name], node_topics_path(node), title: node[:name], data: { id: node[:id] }) %>
               </span>
             <% end %>
           </span>

@@ -44,7 +44,7 @@ hr {
     label {
       font-weight: normal;
       color: var(--secondary);
-      text-align: right;
+      text-align: center;
     }
     .name {
       margin-bottom: 10px;
@@ -191,6 +191,11 @@ hr {
       font-size: 14px;
       margin-left: 10px;
     }
+  }
+
+  button.close{
+    border: 0;
+    background-color: transparent;
   }
 
   .summary {
