@@ -129,7 +129,7 @@ class User < ApplicationRecord
 
   def twitter_url
     return "" if twitter.blank?
-    "https://twitter.com/#{twitter}"
+    "https://x.com/#{twitter}"
   end
 
   def fullname
