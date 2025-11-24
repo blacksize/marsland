@@ -21,6 +21,7 @@ window.TopicView = Backbone.View.extend({
     "click .notify-updated .update": "updateReplies",
     "click .editor-toolbar .reply-to a.close": "unsetReplyTo",
     "tap .topics .topic": "topicRowClick",
+    "click .all-nodes": "openAllNodes"
   },
 
   initialize(opts) {
@@ -37,6 +38,11 @@ window.TopicView = Backbone.View.extend({
   itemsUpdated() {
     this.resetClearReplyHightTimer();
     return this.loadReplyToFloor();
+  },
+
+  openAllNodes(){
+    const myModal = new bootstrap.Modal(document.getElementById('node-selector'));
+    return myModal.show();
   },
 
   resetClearReplyHightTimer() {
