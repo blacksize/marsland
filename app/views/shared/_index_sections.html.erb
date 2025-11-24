@@ -30,7 +30,7 @@
           <span class="nodes media-body">
             <% section[:nodes].each do |node| %>
               <span class="name">
-                <%= link_to(node[:name], node_topics_path(node), data: { id: node[:id] }) %>
+                <%= link_to(node[:name], node_topics_path(node[:id]), title: node[:name], data: { id: node[:id] }) %>
               </span>
             <% end %>
           </span>
