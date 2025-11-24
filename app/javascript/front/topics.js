@@ -31,7 +31,7 @@ window.TopicView = Backbone.View.extend({
     this.initCableUpdate();
     this.initContentImageZoom();
     this.checkRepliesLikeStatus();
-    this.initAllNodesModal();
+    // this.initAllNodesModal();
     return this.itemsUpdated();
   },
 
@@ -44,9 +44,7 @@ window.TopicView = Backbone.View.extend({
   initAllNodesModal(){
     const element = document.getElementById('node-selector');
     if(!element){return false}
-    const myModal = new bootstrap.Modal(element, {
-      backdrop: true
-    });
+    const myModal = new bootstrap.Modal(element);
     // 触发打开 Modal
     document.querySelector(".all-nodes").addEventListener('click', function (event) {
       event.preventDefault();
