@@ -21,8 +21,7 @@ window.TopicView = Backbone.View.extend({
     "click .notify-updated .update": "updateReplies",
     "click .editor-toolbar .reply-to a.close": "unsetReplyTo",
     "tap .topics .topic": "topicRowClick",
-    "click #node-selector .nodes .name a": "nodeSelectorNodeSelected",
-    "click .all-nodes": "openAllNodes"
+
   },
 
   initialize(opts) {
@@ -32,6 +31,7 @@ window.TopicView = Backbone.View.extend({
     this.initCableUpdate();
     this.initContentImageZoom();
     this.checkRepliesLikeStatus();
+    this.initAllNodesModal();
     return this.itemsUpdated();
   },
 
@@ -39,6 +39,19 @@ window.TopicView = Backbone.View.extend({
   itemsUpdated() {
     this.resetClearReplyHightTimer();
     return this.loadReplyToFloor();
+  },
+
+  initAllNodesModal(){
+    const myModal = new bootstrap.Modal(document.getElementById('node-selector'));
+    // 触发打开 Modal
+    document.querySelector(".all-nodes").addEventListener('click', function () {
+      myModal.show();
+    });
+
+    // 获取 modal 内的内容并绑定点击事件关闭 Modal
+    document.querySelector('#node-selector .nodes .name a').addEventListener('click', function () {
+      myModal.hide();
+    });
   },
 
   openAllNodes(event){
