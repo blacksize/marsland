@@ -26,11 +26,11 @@
     <div class="row node-list">
       <% @sections.each do |section| %>
         <div class="node media">
-          <label class="mr-2 media-left"><%= section[:name] %></label>  <!-- 渲染 section 名称 -->
+          <label class="mr-2 media-left"><%= section[:name] %></label>
           <span class="nodes media-body">
             <% section[:nodes].each do |node| %>
               <span class="name">
-                <%= link_to(node[:name], node_topics_path(node), title: node[:name], data: { id: node[:id] }) %>
+                <%= link_to(node[:name], node_topics_path(node), data: { id: node[:id] }) %>
               </span>
             <% end %>
           </span>
