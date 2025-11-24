@@ -1,0 +1,25 @@
+@sections = [{
+  name: "讨论",
+  nodes: [{ name: "闲聊", id: 12 }, { name: "新闻", id: 3 }]
+}, {
+  name: "生活",
+  nodes: [{ name: "情感", id: 1 }, { name: "问答", id: 2 }]
+}]
+<div class="index-sections card">
+  <div class="card-body">
+    <div class="row node-list">
+      <% @sections.each do |section| %>  <!-- 遍历 @sections 数组 -->
+        <div class="node media">
+          <label class="mr-2 media-left"><%= section[:name] %></label>  <!-- 渲染 section 名称 -->
+          <span class="nodes media-body">
+            <% section[:nodes].each do |node| %>  <!-- 遍历每个 section 下的 nodes -->
+              <span class="name">
+                <%= link_to(node[:name], node_topics_path(node), title: node[:name], data: { id: node[:id] }) %>  <!-- 渲染节点的名称并链接到相应的页面 -->
+              </span>
+            <% end %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
