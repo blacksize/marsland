@@ -39,7 +39,7 @@ hr {
       margin-bottom: 0px;
     }
     .media-left {
-      min-width: 130px;
+      min-width: 60px;
     }
     label {
       font-weight: normal;
@@ -196,6 +196,10 @@ hr {
   button.close{
     border: 0;
     background-color: transparent;
+  }
+
+  .modal-header{
+    justify-content: space-between;
   }
 
   .summary {
