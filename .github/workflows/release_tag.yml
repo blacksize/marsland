@@ -29,7 +29,7 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/homeland:${{ steps.tagName.outputs.tag }}  # 使用 GHCR 格式的标签
+            ghcr.io/${{ github.repository_owner }}/marsland:${{ steps.tagName.outputs.tag }}  # 使用 GHCR 格式的标签
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}  # 输出镜像的 digest
