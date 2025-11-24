@@ -21,6 +21,7 @@ window.TopicView = Backbone.View.extend({
     "click .notify-updated .update": "updateReplies",
     "click .editor-toolbar .reply-to a.close": "unsetReplyTo",
     "tap .topics .topic": "topicRowClick",
+    "click #node-selector .nodes .name a": "nodeSelectorNodeSelected",
     "click .all-nodes": "openAllNodes"
   },
 
@@ -44,6 +45,11 @@ window.TopicView = Backbone.View.extend({
     event.preventDefault();
     const myModal = new bootstrap.Modal(document.getElementById('node-selector'));
     return myModal.show();
+  },
+
+  nodeSelectorNodeSelected(e){
+    const myModal = new bootstrap.Modal(document.getElementById('node-selector'));
+    return myModal.hide();
   },
 
   resetClearReplyHightTimer() {
