@@ -40,7 +40,8 @@ window.TopicView = Backbone.View.extend({
     return this.loadReplyToFloor();
   },
 
-  openAllNodes(){
+  openAllNodes(event){
+    event.preventDefault();
     const myModal = new bootstrap.Modal(document.getElementById('node-selector'));
     return myModal.show();
   },
