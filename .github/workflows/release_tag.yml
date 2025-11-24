@@ -22,6 +22,7 @@ jobs:
         with:
           username: ${{ github.actor }}  # 使用 GitHub 用户名
           password: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub token
+          registry: ghcr.io
 
       - name: Build Tag and Push to GHCR
         id: docker_build
