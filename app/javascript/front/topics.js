@@ -42,7 +42,11 @@ window.TopicView = Backbone.View.extend({
   },
 
   initAllNodesModal(){
-    const myModal = new bootstrap.Modal(document.getElementById('node-selector'));
+    const element = document.getElementById('node-selector');
+    if(!element){return false}
+    const myModal = new bootstrap.Modal(element, {
+      backdrop: true
+    });
     // 触发打开 Modal
     document.querySelector(".all-nodes").addEventListener('click', function (event) {
       event.preventDefault();
