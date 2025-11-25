@@ -31,7 +31,7 @@ window.TopicView = Backbone.View.extend({
     this.initCableUpdate();
     this.initContentImageZoom();
     this.checkRepliesLikeStatus();
-    // this.initAllNodesModal();
+    this.initAllNodesModal();
     return this.itemsUpdated();
   },
 
@@ -49,11 +49,6 @@ window.TopicView = Backbone.View.extend({
     document.querySelector(".all-nodes").addEventListener('click', function (event) {
       event.preventDefault();
       myModal.show();
-    });
-
-    // 获取 modal 内的内容并绑定点击事件关闭 Modal
-    document.querySelector('#node-selector .nodes .name a').addEventListener('click', function () {
-      myModal.hide();
     });
   },
 

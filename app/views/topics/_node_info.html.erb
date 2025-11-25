@@ -46,21 +46,3 @@
     </div>
   </div>
 <% end %>
-<script>
-window.onload = function(){
-  const element = document.getElementById('node-selector');
-  if(!element){return false}
-  const myModal = new bootstrap.Modal(element);
-  // 触发打开 Modal
-  document.querySelector(".all-nodes").addEventListener('click', function (event) {
-    event.preventDefault();
-    myModal.show();
-  });
-
-  // 获取 modal 内的内容并绑定点击事件关闭 Modal
-  document.querySelector('#node-selector .nodes .name a').addEventListener('click', function () {
-    myModal.hide();
-  });
-}
-</script>
-
