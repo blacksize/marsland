@@ -316,9 +316,9 @@ body {
 
 .sub-navbar {
   @apply bg-white shadow-sm;
-  @apply dark:bg-gray-900 dark:border-t dark:bg-opacity-70 dark:border-solid dark:border-gray-900;
+  @apply dark:bg-gray-900 dark:border-t dark:bg-opacity-70 dark:border-solid dark:border-gray-900 dark:border-b-0;
   @apply border-b-0 md:border-b;
-
+  border-bottom: 1px solid #e5e5e5;
   a {
     color: $blue;
   }

@@ -26,8 +26,6 @@ window.TopicView = Backbone.View.extend({
 
   initialize(opts) {
     this.parentView = opts.parentView;
-    console.log(opts);
-    
 
     this.initComponents();
     this.initCableUpdate();
@@ -50,10 +48,9 @@ window.TopicView = Backbone.View.extend({
 
     element.addEventListener('click', function(event) {
       if (event.target.tagName === 'A') { // 检查点击目标是否是<a>标签
-        event.preventDefault();
-        console.log('已通过事件委托阻止跳转至: ' + event.target.href);
+        // event.preventDefault();
         myModal.hide()
-        window.location.href = event.target.href
+        // window.location.href = event.target.href
       }
     });
   },
