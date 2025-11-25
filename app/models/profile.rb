@@ -2,7 +2,7 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   CONTACT_FIELDS = %i[alipay paypal qq weibo wechat douban dingding aliwangwang
-    facebook instagram dribbble battle_tag psn_id steam_id telegram twitter]
+    facebook instagram dribbble battle_tag psn_id steam_id]
 
   # store :contacts, coder: JSON
   # store :rewards, coder: JSON

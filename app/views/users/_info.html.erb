@@ -1,15 +1,27 @@
-<% if @user.contacts.present? %>
 <div class="card userinfo">
   <div class="card-body">
       <div class="user-profile-fields">
-        <% @user.contacts.each_key do |field| %>
-          <% next if @user.profile_field(field).blank? %>
+        <% if @user.contacts.present? %>
+          <% @user.contacts.each_key do |field| %>
+            <% next if @user.profile_field(field).blank? %>
+            <div class="field">
+              <label style="width: 70px;"><%= Profile.contact_field_label(field) %>:</label>
+              <span class="value"><%= @user.full_profile_field(field) %></span>
+            </div>
+          <% end %>
+        <% end %>
+        <% if !@user.telegram.blank? %>
           <div class="field">
-            <label style="width: 50px;"><%= Profile.contact_field_label(field) %>:</label>
-            <span class="value"><%= @user.full_profile_field(field) %></span>
+            <label style="width: 70px;">Telegram:</label>
+            <span class="value"><%= link_to '', "https://t.me/#{@user.telegram}", target: '_blank', class: "twitter", rel: "nofollow" %></span>
+          </div>
+        <% end %>
+        <% if !@user.twitter.blank? %>
+          <div class="field">
+            <label style="width: 70px;">X:</label>
+            <span class="value"><%= link_to '', @user.twitter_url, target: '_blank', class: "twitter", rel: "nofollow" %></span>
           </div>
         <% end %>
       </div>
   </div>
 </div>
-<% end %>
