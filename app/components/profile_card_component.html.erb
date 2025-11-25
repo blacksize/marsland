@@ -25,6 +25,9 @@
     <% if !user.twitter.blank? %>
       <%= link_to icon_bold_tag("x-twitter"), user.twitter_url, class: "twitter", rel: "nofollow" %>
     <% end %>
+    <% if !user.telegram.blank? %>
+      <%= link_to icon_bold_tag("telegram"), "https://t.me/#{user.telegram}", class: "twitter", rel: "nofollow" %>
+    <% end %>
     <% if Setting.has_module? :github %>
       <% if !user.github.blank? %>
         <%= link_to icon_bold_tag("github"), user.github_url, target: '_blank', rel: 'nofollow' %>

@@ -304,6 +304,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_30_092055) do
     t.string "company"
     t.string "github"
     t.string "twitter"
+    t.string "telegram"
     t.string "avatar"
     t.integer "state", default: 1, null: false
     t.string "tagline"

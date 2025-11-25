@@ -48,9 +48,9 @@ window.TopicView = Backbone.View.extend({
 
     element.addEventListener('click', function(event) {
       if (event.target.tagName === 'A') { // 检查点击目标是否是<a>标签
-        // event.preventDefault();
+        event.preventDefault();
         myModal.hide()
-        // window.location.href = event.target.href
+        window.location.href = event.target.href
       }
     });
   },
