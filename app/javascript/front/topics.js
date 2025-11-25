@@ -26,12 +26,14 @@ window.TopicView = Backbone.View.extend({
 
   initialize(opts) {
     this.parentView = opts.parentView;
+    console.log(opts);
+    
 
     this.initComponents();
     this.initCableUpdate();
     this.initContentImageZoom();
     this.checkRepliesLikeStatus();
-    // this.initAllNodesModal();
+    this.initAllNodesModal();
     return this.itemsUpdated();
   },
 
@@ -45,10 +47,14 @@ window.TopicView = Backbone.View.extend({
     const element = document.getElementById('node-selector');
     if(!element){return false}
     const myModal = new bootstrap.Modal(element);
-    // 触发打开 Modal
-    document.querySelector(".all-nodes").addEventListener('click', function (event) {
-      event.preventDefault();
-      myModal.show();
+
+    element.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') { // 检查点击目标是否是<a>标签
+        event.preventDefault();
+        console.log('已通过事件委托阻止跳转至: ' + event.target.href);
+        myModal.hide()
+        window.location.href = event.target.href
+      }
     });
   },
 
