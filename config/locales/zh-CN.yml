@@ -61,6 +61,7 @@
         state: "等级"
         company: "公司"
         twitter: "X"
+        telegram: "Telegram"
         github: "GitHub"
         remember_me: 记住登录状态
         current_password: 旧密码
@@ -78,6 +79,8 @@
           instagram: Instragram
           dribbble: Dribbble
           battle_tag: BattleTag
+          telegram: Telegram
+          twitter: X
           psn_id: PSN ID
           steam_id: Stream ID
       team:
