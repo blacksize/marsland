@@ -31,7 +31,7 @@ window.TopicView = Backbone.View.extend({
     this.initCableUpdate();
     this.initContentImageZoom();
     this.checkRepliesLikeStatus();
-    this.initAllNodesModal();
+    // this.initAllNodesModal();
     return this.itemsUpdated();
   },
 
