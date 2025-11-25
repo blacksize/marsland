@@ -18,7 +18,7 @@ class User < ApplicationRecord
   LOGIN_FORMAT = 'A-Za-z0-9\-\_\.'
   ALLOW_LOGIN_FORMAT_REGEXP = /\A[#{LOGIN_FORMAT}]+\z/
 
-  ACCESSABLE_ATTRS = %i[name email_public location company bio website github twitter tagline avatar by
+  ACCESSABLE_ATTRS = %i[name email_public location company bio website github telegram twitter tagline avatar by
     current_password password password_confirmation _rucaptcha]
 
   has_one :profile, dependent: :destroy
@@ -49,7 +49,7 @@ class User < ApplicationRecord
   scope :without_team, -> { where(type: nil) }
   scope :fields_for_list, lambda {
     select(:type, :id, :name, :login, :email, :email_md5, :email_public,
-      :avatar, :state, :tagline, :github, :website, :location,
+      :avatar, :state, :tagline, :github, :website, :location, :telegram,
       :location_id, :twitter, :team_users_count, :created_at, :updated_at)
   }
 
