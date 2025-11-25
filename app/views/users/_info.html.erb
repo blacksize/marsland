@@ -13,13 +13,13 @@
         <% if !@user.telegram.blank? %>
           <div class="field">
             <label style="width: 70px;">Telegram:</label>
-            <span class="value"><%= link_to '', "https://t.me/#{@user.telegram}", target: '_blank', class: "twitter", rel: "nofollow" %></span>
+            <span class="value"><%= link_to "https://t.me/#{@user.telegram}", "https://t.me/#{@user.telegram}", target: '_blank', class: "twitter", rel: "nofollow" %></span>
           </div>
         <% end %>
         <% if !@user.twitter.blank? %>
           <div class="field">
             <label style="width: 70px;">X:</label>
-            <span class="value"><%= link_to '', @user.twitter_url, target: '_blank', class: "twitter", rel: "nofollow" %></span>
+            <span class="value"><%= link_to @user.twitter_url, @user.twitter_url, target: '_blank', class: "twitter", rel: "nofollow" %></span>
           </div>
         <% end %>
       </div>
