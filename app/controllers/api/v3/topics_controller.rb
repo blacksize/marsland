@@ -82,8 +82,14 @@ module Api
         requires! :title
         requires! :body
         requires! :node_id
+        
+        raise AccessDenied.new("当前用户暂时没有权限发布帖子") unless can?(:create, Topic)
 
-        raise AccessDenied.new("The current user does not have permission to create Topic.") unless can?(:create, Topic)
+        # 判断节点是否只允许管理员发帖
+        node = Node.find(params[:node_id])
+        if node.admin_only && !current_user.admin?
+          raise AccessDenied.new("您无法在该话题节点下发布内容")
+        end
 
         @topic = current_user.topics.new(title: params[:title], body: params[:body])
         @topic.node_id = params[:node_id]
