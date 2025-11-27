@@ -67,15 +67,6 @@ class TopicsController < ApplicationController
   def new
     @topic = Topic.new(user_id: current_user.id)
     unless params[:node_id].blank?
-
-      # 判断节点是否只允许管理员发帖
-      node = Node.find(params[:node_id])
-      if node.admin_only && !current_user.admin?
-        # 向前端页面报错，显示错误原因
-        @topic.errors.add(:node_id, "该节点下只允许管理员发帖")
-        return render :new
-      end
-
       @topic.node_id = params[:node_id]
       @node = Node.find_by_id(params[:node_id])
       render_404 if @node.blank?
@@ -87,9 +78,20 @@ class TopicsController < ApplicationController
   end
 
   def create
+    #获取nodeid
+    the_node_id = params[:node] || topic_params[:node_id]
+    
+    # 判断节点是否只允许管理员发帖
+    node = Node.find(the_node_id)
+    if node.admin_only && !current_user.admin?
+      # 向前端页面报错，显示错误原因
+      @topic.errors.add(:the_node_id, "该节点下只允许管理员发帖")
+      return render :new
+    end
+
     @topic = Topic.new(topic_params)
     @topic.user_id = current_user.id
-    @topic.node_id = params[:node] || topic_params[:node_id]
+    @topic.node_id = the_node_id
     @topic.team_id = ability_team_id
     @topic.save
   end
