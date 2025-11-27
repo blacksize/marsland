@@ -85,7 +85,7 @@ class TopicsController < ApplicationController
     node = Node.find(the_node_id)
     if node.admin_only && !current_user.admin?
       # 向前端页面报错，显示错误原因
-      @topic.errors.add(:the_node_id,"该节点下只允许管理员发帖")
+      @topic.errors.add("该节点下只允许管理员发布主题")
     else
       @topic = Topic.new(topic_params)
       @topic.user_id = current_user.id

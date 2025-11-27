@@ -42,8 +42,8 @@
       unlocked: "您的账号已成功解锁，请登录。"
     mailer:
       confirmation_instructions:
-        subject: "确认信息"
+        subject: "这是您的注册激活确认邮件"
       reset_password_instructions:
-        subject: "重置密码信息"
+        subject: "您的账号正在进行重置密码操作"
       unlock_instructions:
-        subject: "解锁信息"
+        subject: "这是您的账号解锁邮件"
