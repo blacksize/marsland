@@ -34,6 +34,7 @@
     registrations:
       user:
         signed_up: "您的账号已注册成功，如无意外，您将收到一封确认邮件。"
+        signed_up_but_unconfirmed: "注册激活邮件已发送，请查收邮件并确认注册。"
         updated: "账号资料更新成功。"
         destroyed: "再见！您的帐户已成功注销。我们希望很快可以再见到您。"
     unlocks:
