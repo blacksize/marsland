@@ -114,6 +114,7 @@
         name: 名称
         sort: 排序
         summary: 简介
+        admin_only: 仅允许管理员发布
     errors:
       models:
         user:

@@ -90,6 +90,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_30_092055) do
     t.string "summary"
     t.integer "sort", default: 0, null: false
     t.integer "topics_count", default: 0, null: false
+    t.boolean "admin_only", default: false, null: false
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.index ["sort"], name: "index_nodes_on_sort"

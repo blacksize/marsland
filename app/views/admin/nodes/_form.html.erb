@@ -12,6 +12,12 @@
     <%= f.label :summary %>
     <%= f.text_area :summary, class: "form-control" %>
   </div>
+  <label class="form-label" for="node_admin_only">发布权限</label>
+  <div class="form-group form-check">
+    # 设置check状态的值为admin_only
+    <%= f.check_box :admin_only, class: "form-check-input" %> 
+    <%= f.label :admin_only, class: "form-check-label" %>
+  </div>
   <div class="form-actions">
     <%= f.submit t("common.save"), class: "btn btn-primary", 'data-disable-with' => t("common.saving") %>
     <%= link_to t("common.cancel"), admin_nodes_path, class: "btn btn-secondary" %>
