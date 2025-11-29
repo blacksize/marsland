@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
   end
 
   def feed
-    @topics = Topic.recent.without_ban.without_hide_nodes.limit(20)
+    @topics = Topic.recent.without_ban.without_hide_nodes.includes(:last_reply_user)..limit(20)
     render layout: false if stale?(@topics)
   end
 
