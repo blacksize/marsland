@@ -15,6 +15,9 @@
             <span class="sub-info">
               <span class='floor'>#<%= floor %></span>
               <a class="time" href="#reply-<%= reply.id %>"><%= timeago(reply.created_at) %></a>
+              <% if reply.user && reply.user.id == reply.topic.user_id %>
+                <span class="label label-info reply_by_author" style="color: #225eda;font-size: .8em;">楼主</span>
+              <% end %>
             </span>
           </div>
           <%= render ReplyToComponent.new(reply: reply, topic: @topic, show_body: false) %>
